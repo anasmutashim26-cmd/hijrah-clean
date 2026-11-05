@@ -249,7 +249,7 @@ export default function App() {
 
   // Breathing Visualizer State
   const [isBreathingActive, setIsBreathingActive] = useState(false);
-  const [breathingPhase, setBreathingPhase] = useState('Inhale');
+  const [breathingPhase, setBreathingPhase] = useState('Tarik Napas');
   const [breathingTimer, setBreathingTimer] = useState(4);
 
   // Time calculations
@@ -388,16 +388,16 @@ export default function App() {
         setBreathingTimer((prev) => {
           if (prev > 1) return prev - 1;
           setBreathingPhase((currentPhase) => {
-            if (currentPhase === 'Inhale') return 'Hold (In)';
-            if (currentPhase === 'Hold (In)') return 'Exhale';
-            if (currentPhase === 'Exhale') return 'Hold (Out)';
-            return 'Inhale';
+            if (currentPhase === 'Tarik Napas') return 'Tahan Napas';
+            if (currentPhase === 'Tahan Napas') return 'Hembuskan Napas';
+            if (currentPhase === 'Hembuskan Napas') return 'Tahan Napas (Kosong)';
+            return 'Tarik Napas';
           });
           return 4;
         });
       }, 1000);
     } else {
-      setBreathingPhase('Inhale');
+      setBreathingPhase('Tarik Napas');
       setBreathingTimer(4);
     }
     return () => clearInterval(interval);
